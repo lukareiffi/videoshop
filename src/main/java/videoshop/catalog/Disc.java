@@ -68,7 +68,11 @@ public class Disc extends Product {
 	public void addComment(Comment comment) {
 		comments.add(comment);
 	}
-
+	
+	public boolean removeComment(long commentId) {
+    return comments.removeIf(comment -> comment.getId() == commentId);
+	}
+	
 	// (｡◕‿◕｡)
 	// Es ist immer sinnvoll sich zu überlegen wie speziell der Rückgabetyp sein sollte
 	// Da sowies nur über die Kommentare iteriert wird, ist ein Iterable<T> das sinnvollste.
