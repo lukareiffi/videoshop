@@ -50,6 +50,12 @@
                             </div>
                         </div>
                         <div class="text" th:text="${comment.text}">Guter Film vong Inhalt her</div>
+                          <form th:action="@{/disc/{id}/comments/{cid}/delete(id=${disc.id},cid=${comment.id})}"
+                              method="post" sec:authorize="hasRole('BOSS')">
+                            <button type="submit" class="ui mini red button">
+                                <i class="trash icon"></i> Löschen
+                                  </button>
+                              </form>
                     </div>
                 </div>
 
