@@ -97,7 +97,15 @@ class CatalogController {
 
 		return "redirect:/disc/" + disc.getId();
 	}
+	
+	@PostMapping("/disc/{disc}/comments/{commentId}/delete")
+	public String deleteComment(@PathVariable Disc disc, @PathVariable long commentId){
+   
+		disc.removeComment(commentId);
+   		catalog.save(disc);
 
+    	return "redirect:/disc/" + disc.getId();
+}
 	/**
 	 * Describes the payload to be expected to add a comment.
 	 *
